@@ -13,7 +13,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('posts', function (Blueprint $table) {
-            $table->increments('id');
+            $table->id();
             $table->text('title');
             $table->text('content')->nullable();
             // $table->integer('user_id');

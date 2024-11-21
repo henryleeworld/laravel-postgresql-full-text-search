@@ -1,6 +1,6 @@
-# Laravel 10 PostgreSQL 全文檢索
+# Laravel 11 PostgreSQL 全文檢索
 
-引入 devnoiseconsulting 的 laravel-scout-postgres-tsvector 套件來擴增 PostgreSQL 全文檢索，全文檢索搜尋可讓使用者針對資料表中以字元為主的資料，執行全文檢索查詢。
+引入 gctc-ntgc 的 laravel-scout-postgres-tsvector 套件來擴增 PostgreSQL 全文檢索，全文檢索搜尋可讓使用者針對資料表中以字元為主的資料，執行全文檢索查詢。
 
 ## 使用方式
 - 把整個專案複製一份到你的電腦裡，這裡指的「內容」不是只有檔案，而是指所有整個專案的歷史紀錄、分支、標籤等內容都會複製一份下來。
@@ -26,8 +26,8 @@ $ php artisan migrate --seed
 ----
 
 ## 畫面截圖
-![](https://i.imgur.com/k7reFLA.png)
+![](https://i.imgur.com/ZCgM97o.png)
 > 顯示全部貼文
 
-![](https://i.imgur.com/AMfftqC.png)
+![](https://i.imgur.com/VmzndJA.png)
 > 對貼文標題、內容進行查詢

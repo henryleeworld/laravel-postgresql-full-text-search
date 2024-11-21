@@ -8,6 +8,7 @@ use Laravel\Scout\Searchable;
 
 class Post extends Model
 {
+    /** @use HasFactory<\Database\Factories\UserFactory> */
     use HasFactory, Searchable;
 
     /**
