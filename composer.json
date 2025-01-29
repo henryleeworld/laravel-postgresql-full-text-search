@@ -7,7 +7,7 @@
     "require": {
         "php": "^8.2",
         "gctc-ntgc/laravel-scout-postgres-tsvector": "^1.0",
-        "laravel/framework": "^11.13",
+        "laravel/framework": "^11.14",
         "laravel/tinker": "^2.10"
     },
     "require-dev": {
