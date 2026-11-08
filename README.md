@@ -1,4 +1,4 @@
-# Laravel 11 PostgreSQL 全文檢索
+# Laravel 12 PostgreSQL 全文檢索
 
 引入 gctc-ntgc 的 laravel-scout-postgres-tsvector 套件來擴增 PostgreSQL 全文檢索，全文檢索搜尋可讓使用者針對資料表中以字元為主的資料，執行全文檢索查詢。
 
@@ -26,8 +26,8 @@ $ php artisan migrate --seed
 ----
 
 ## 畫面截圖
-![](https://i.imgur.com/ZCgM97o.png)
+![](https://i.imgur.com/hYcqlZe.png)
 > 顯示全部貼文
 
-![](https://i.imgur.com/VmzndJA.png)
+![](https://i.imgur.com/bmCLofH.png)
 > 對貼文標題、內容進行查詢

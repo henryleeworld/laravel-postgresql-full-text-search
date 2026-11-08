@@ -11,12 +11,12 @@ return [
     | using Laravel Scout. This connection is used when syncing all models
     | to the search service. You should adjust this based on your needs.
     |
-    | Supported: "algolia", "meilisearch", "typesense",
+    | Supported: "algolia", "meilisearch", "typesense", "turbopuffer",
     |            "database", "collection", "null"
     |
     */
 
-    'driver' => env('SCOUT_DRIVER', 'algolia'),
+    'driver' => env('SCOUT_DRIVER', 'collection'),
 
     /*
     |--------------------------------------------------------------------------
@@ -115,6 +115,12 @@ return [
     'algolia' => [
         'id' => env('ALGOLIA_APP_ID', ''),
         'secret' => env('ALGOLIA_SECRET', ''),
+        'index-settings' => [
+            // 'users' => [
+            //     'searchableAttributes' => ['id', 'name', 'email'],
+            //     'attributesForFaceting'=> ['filterOnly(email)'],
+            // ],
+        ],
     ],
 
     /*
@@ -135,11 +141,30 @@ return [
         'key' => env('MEILISEARCH_KEY'),
         'index-settings' => [
             // 'users' => [
-            //     'filterableAttributes'=> ['id', 'name', 'email'],
+            //     'filterableAttributes' => ['id', 'name', 'email'],
+            //     'embedders' => [
+            //         'default' => [
+            //             'source' => 'userProvided',
+            //             'dimensions' => 1536,
+            //         ],
+            //     ],
+            // ],
+        ],
+        'model-settings' => [
+            // User::class => [
+            //     'embedding' => [
+            //         'embedder' => 'default',
+            //         'dimensions' => 1536,
+            //     ],
             // ],
         ],
     ],
 
+    /*
+    |--------------------------------------------------------------------------
+    | PostgreSQL Configuration
+    |--------------------------------------------------------------------------
+    */
     'pgsql' => [
         // Connection to use. See config/database.php
         'connection' => env('DB_CONNECTION', 'pgsql'),
@@ -210,6 +235,48 @@ return [
             //     ],
             //     'search-parameters' => [
             //         'query_by' => 'name'
+            //     ],
+            //     'embedding' => [
+            //         'attribute' => 'embedding',
+            //         'dimensions' => 1536,
+            //     ],
+            // ],
+        ],
+        'import_action' => env('TYPESENSE_IMPORT_ACTION', 'upsert'),
+    ],
+
+    /*
+    |--------------------------------------------------------------------------
+    | Turbopuffer Configuration
+    |--------------------------------------------------------------------------
+    |
+    | Here you may configure your Turbopuffer connection and the schema and
+    | searchable attributes defined by each of your application's models.
+    | Turbopuffer is a scalable engine with full-text + vector search.
+    |
+    */
+
+    'turbopuffer' => [
+        'api_key' => env('TURBOPUFFER_API_KEY'),
+        'region' => env('TURBOPUFFER_REGION', 'gcp-us-central1'),
+        'base_url' => env('TURBOPUFFER_BASE_URL'),
+        'timeout' => env('TURBOPUFFER_TIMEOUT', 60),
+        'connect_timeout' => env('TURBOPUFFER_CONNECT_TIMEOUT', 5),
+        'retries' => env('TURBOPUFFER_RETRIES', 3),
+        'model-settings' => [
+            // User::class => [
+            //     'searchable-attributes' => [
+            //         'name' => 2,
+            //         'email' => 1,
+            //     ],
+            //     'embedding' => [
+            //         'attribute' => 'embedding',
+            //         'dimensions' => 1536,
+            //     ],
+            //     'schema' => [
+            //         'name' => ['type' => 'string', 'full_text_search' => true],
+            //         'email' => ['type' => 'string', 'full_text_search' => true],
+            //         'embedding' => ['type' => '[1536]f32', 'ann' => true],
             //     ],
             // ],
         ],
